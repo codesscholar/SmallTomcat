@@ -7,6 +7,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 import connector.Processor.BioProcessor;
+import connector.thread.ThreadFactory;
 
 /**
  * 从头开始构建一个简单的Http服务器
@@ -29,7 +30,7 @@ public class ServerBoot {
 			while (true) {
 				socket = serverSocket.accept();
 				BioProcessor processor = new BioProcessor(socket);
-				processor.process();
+				ThreadFactory.handle(processor);
 			}	
 		} catch (UnknownHostException e) {
 			e.printStackTrace();

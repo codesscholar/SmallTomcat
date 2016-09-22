@@ -9,14 +9,13 @@ import javax.print.attribute.standard.JobHoldUntil;
 
 import container.StaticResourceHandler;
 
-public class BioProcessor {
+public class BioProcessor implements Runnable{
 	private Socket socket;
 	
 	public BioProcessor(Socket socket) {
 		this.socket = socket;
 	}
-	
-	public void process() {
+	public void run() {
 		InputStream inputStream = null;
 		OutputStream outputStream = null;
 		

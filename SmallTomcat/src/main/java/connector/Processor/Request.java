@@ -31,7 +31,6 @@ public class Request {
 			String requestMessage = sb.toString();
 			
 			// get URI and requestType
-			System.out.println(requestMessage);
 			String[] parseResult = getFirstLineOfRequest(requestMessage);
 			if(parseResult.length == 3) {
 				uri = parseResult[1];
